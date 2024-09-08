@@ -3,27 +3,19 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import logo from './lgo.jpeg'; // Replace with your actual logo file
-import '../floating.css'; // Import the custom CSS file
-import '../announcement.css'; // Import custom CSS for announcement bar
+import '../floating.css'; // Import custom CSS file if needed
 
 const LandingPage = () => {
   const whatsappUrl = `https://alvo.chat/4SC8`; // Your WhatsApp link for purchasing
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-400 to-blue-400 text-center p-6 sm:border-none border-4 border-white rounded-lg">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-400 to-blue-400 text-center p-6">
       
-      {/* Announcement Bar */}
-      <div className="announcement-bar bg-green-500 text-white py-2">
-        <p className="animate-marquee">
-          2000+ loyal customers, 4.5 years of experience
-        </p>
-      </div>
-
-      {/* Logo Animation */}
+      {/* Logo without Floating Animation */}
       <motion.img
         src={logo} 
         alt="Dexter Luxuries Logo"
-        className="w-32 h-32 sm:w-48 sm:h-48 mb-4 rounded-full border-4 border-white shadow-xl floating-logo"
+        className="w-32 h-32 sm:w-48 sm:h-48 mb-4 rounded-full shadow-xl"
         initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -61,7 +53,7 @@ const LandingPage = () => {
           </li>
           <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Trusted by 2000+ users with over 2 years of experience.
+            Trusted by 2,000+ users with over 2 years of experience.
           </li>
           <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
@@ -83,7 +75,7 @@ const LandingPage = () => {
       {/* Buy Now Button */}
       <motion.a
         href={whatsappUrl}
-        className="bg-green-500 text-white py-3 px-8 rounded-full flex items-center space-x-2 hover:bg-green-600 transition duration-300 mb-4 border-2 border-white shadow-md"
+        className="bg-green-500 text-white py-3 px-8 rounded-full flex items-center space-x-2 hover:bg-green-600 transition duration-300 mb-4 shadow-md"
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.1 }}
