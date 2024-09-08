@@ -83,4 +83,20 @@ const LandingPage = () => {
       <motion.a
         href={whatsappUrl}
         onClick={handleBuyNowClick} // Add click handler
-        className="bg-green-500 text-white py-3 px-8 rounded-full flex items-center space-x-2 hover:bg-green-
+        className="bg-green-500 text-white py-3 px-8 rounded-full flex items-center space-x-2 hover:bg-green-600 transition duration-300 mb-4 shadow-md"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
+        <FaWhatsapp className="text-2xl" />
+        <span>Buy Now</span>
+      </motion.a>
+    </div>
+  );
+};
+
+export default LandingPage;
