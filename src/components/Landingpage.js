@@ -21,14 +21,14 @@ const LandingPage = () => {
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
 
-      {/* Welcome Title */}
+      {/* Title */}
       <motion.h1 
-        className="text-3xl sm:text-5xl font-extrabold text-white mb-4 font-sans tracking-wide uppercase"
+        className="text-3xl sm:text-5xl font-extrabold text-white mb-4 font-serif tracking-wide uppercase"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        Welcome to Dexter Luxuries
+        Dexter Luxuries
       </motion.h1>
 
       {/* Brand Description */}
@@ -39,25 +39,25 @@ const LandingPage = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <ul className="space-y-2 list-disc list-inside">
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
             Premium OTT subscriptions at unbeatable prices.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Access to all popular software and media files.
+            Access to top-tier software and media files.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Guaranteed 100% satisfaction with our services.
+            100% satisfaction guaranteed with every purchase.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Trusted by thousands, with 2 years of experience on Telegram.
+            Trusted by thousands with over 2 years of experience.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Quick support available on WhatsApp.
+            Fast and responsive support via WhatsApp.
           </li>
         </ul>
       </motion.div>
