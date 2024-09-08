@@ -53,11 +53,11 @@ const LandingPage = () => {
           </li>
           <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Trusted by thousands with over 2 years of experience.
+            Trusted by 2000+ users with over 2 years of experience.
           </li>
           <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Fast and responsive support via WhatsApp.
+            Quick support via WhatsApp.
           </li>
         </ul>
       </motion.div>
