@@ -4,6 +4,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import logo from './lgo.jpeg'; // Replace with your actual logo file
 import '../floating.css'; // Import the custom CSS file
+import '../announcement.css'; // Import custom CSS for announcement bar
 
 const LandingPage = () => {
   const whatsappUrl = `https://alvo.chat/4SC8`; // Your WhatsApp link for purchasing
@@ -11,6 +12,13 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-400 to-blue-400 text-center p-6 sm:border-none border-4 border-white rounded-lg">
       
+      {/* Announcement Bar */}
+      <div className="announcement-bar bg-green-500 text-white py-2">
+        <p className="animate-marquee">
+          2000+ loyal customers, 4.5 years of experience
+        </p>
+      </div>
+
       {/* Logo Animation */}
       <motion.img
         src={logo} 
@@ -21,14 +29,14 @@ const LandingPage = () => {
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
 
-      {/* Welcome Title */}
+      {/* Title */}
       <motion.h1 
-        className="text-3xl sm:text-5xl font-extrabold text-white mb-4 font-sans tracking-wide uppercase"
+        className="text-3xl sm:text-5xl font-extrabold text-white mb-4 font-serif tracking-wide uppercase"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        Welcome to Dexter Luxuries
+        Dexter Luxuries
       </motion.h1>
 
       {/* Brand Description */}
@@ -39,25 +47,25 @@ const LandingPage = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <ul className="space-y-2 list-disc list-inside">
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
             Premium OTT subscriptions at unbeatable prices.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Access to all popular software and media files.
+            Access to top-tier software and media files.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Guaranteed 100% satisfaction with our services.
+            100% satisfaction guaranteed with every purchase.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Trusted by thousands, with 2 years of experience on Telegram.
+            Trusted by 2000+ users with over 2 years of experience.
           </li>
-          <li className="flex items-center capitalize">
+          <li className="flex items-center">
             <AiOutlineCheckCircle className="text-green-400 mr-2" />
-            Quick support available on WhatsApp.
+            Quick support via WhatsApp.
           </li>
         </ul>
       </motion.div>
