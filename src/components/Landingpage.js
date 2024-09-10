@@ -159,5 +159,24 @@ const LandingPage = () => {
         </p>
       </div>
 
+
       {/* Footer Section */}
-      <div className="fixed bottom-0
+      <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
+        <div className="text-black font-bold text-xl">
+          ₹499 <span className="text-gray-500 line-through">₹15,000</span>
+        </div>
+        <a
+          href="https://payments.cybermafia.shop"
+          onClick={handleBuyNowClick}
+          className="bg-red-500 text-white py-3 px-6 rounded-full hover:bg-red-600 transition duration-300 shadow-md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="font-bold">Buy Now</span>
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default LandingPage;
