@@ -106,18 +106,33 @@ const LandingPage = () => {
           <span className="ml-2 text-black font-semibold text-lg">4.6/5</span>
         </div>
 
-        {/* Product Description */}
-        <div className="text-black text-left max-w-md space-y-6 mb-16">
-          <h3 className="text-xl font-semibold">Unlock Powerful Trading Features📊:</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
-            <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with customizable indicators.</li>
-            <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars for long-term trends.</li>
-            <li><strong>400 Price Alerts:</strong> Stay informed on critical price movements with up to 400 alerts.</li>
-            <li><strong>400 Technical Alerts:</strong> Receive alerts for indicator-based market events.</li>
-            <li><strong>50 Parallel Chart Connections:</strong> Monitor up to 50 charts simultaneously.</li>
-            <li><strong>No Ads:</strong> Enjoy an ad-free experience, fully focused on trading.</li>
-          </ul>
+       <div className="text-black text-left max-w-md space-y-6 mb-16">
+  <h3 className="text-xl font-semibold">Unlock Powerful Trading Features📊:</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
+    <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with customizable indicators.</li>
+    <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars for long-term trends.</li>
+    <li><strong>400 Price Alerts:</strong> Stay informed on critical price movements with up to 400 alerts.</li>
+    <li><strong>400 Technical Alerts:</strong> Receive alerts for indicator-based market events.</li>
+    <li><strong>50 Parallel Chart Connections:</strong> Monitor up to 50 charts simultaneously.</li>
+    <li><strong>No Ads:</strong> Enjoy an ad-free experience, fully focused on trading.</li>
+    <li><strong>Volume Profile:</strong> Analyze trading volumes to understand market behavior.</li>
+    <li><strong>Custom Timeframes:</strong> Set up time intervals that align with your trading strategy.</li>
+    <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with customizable watchlists.</li>
+    <li><strong>Bar Replay:</strong> Replay past price movements to backtest strategies.</li>
+    <li><strong>Indicators on Indicators:</strong> Stack indicators for advanced market insights.</li>
+    <li><strong>Chart Data Export:</strong> Export your chart data to CSV for further analysis.</li>
+    <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized charts for unique price action insights.</li>
+    <li><strong>Custom Formulas:</strong> Build custom formulas tailored to your trading style.</li>
+    <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity and key support and resistance zones.</li>
+    <li><strong>Volume Footprint:</strong> Gain insights into market sentiment based on trading volumes.</li>
+    <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns for faster analysis.</li>
+    <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements.</li>
+    <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off.</li>
+    <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
+    <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
+  </ul>
+</div>
 
           {/* How to Access Section */}
           <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
