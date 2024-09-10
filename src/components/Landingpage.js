@@ -27,22 +27,12 @@ const LandingPage = () => {
   };
 
   const handleWhatsappClick = () => {
-    if (window.fbq) {
-      // Track an event for WhatsApp clicks
-      window.fbq('track', 'Contact', {
-        contactMethod: 'WhatsApp',
-      });
-    }
+   
     window.open(whatsappUrl, '_blank');
   };
 
   const handleTelegramClick = () => {
-    if (window.fbq) {
-      // Track an event for Telegram clicks
-      window.fbq('track', 'Contact', {
-        contactMethod: 'Telegram',
-      });
-    }
+   
     window.open(telegramUrl, '_blank');
   };
 
