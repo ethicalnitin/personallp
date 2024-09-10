@@ -83,13 +83,31 @@ const LandingPage = () => {
           <h3 className="text-xl font-semibold">Unlock Powerful Trading Features:</h3>
 
           <ul className="list-disc pl-5 space-y-2">
-            {/* Features of the product */}
             <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen to track market movements effortlessly.</li>
             <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with up to 25 powerful, customizable indicators on each chart.</li>
             <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars to track long-term price movements and trends.</li>
             <li><strong>400 Price Alerts:</strong> Set up to 400 price alerts to stay informed on critical price movements.</li>
-            {/* Add more features here */}
+            <li><strong>400 Technical Alerts:</strong> Create 400 technical alerts to be notified of indicator-based market events.</li>
+            <li><strong>50 Parallel Chart Connections:</strong> Monitor up to 50 charts simultaneously for better market analysis.</li>
+            <li><strong>No Ads:</strong> Enjoy an ad-free experience, focusing entirely on your trading.</li>
+            <li><strong>Volume Profile:</strong> Analyze trading volumes at specific price levels to understand market behavior.</li>
+            <li><strong>Custom Timeframes:</strong> Set up custom time intervals that align with your specific trading strategy.</li>
+            <li><strong>Custom Range Bars:</strong> Analyze market trends using custom range bars for more visual insights.</li>
+            <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with multiple, customizable watchlists.</li>
+            <li><strong>Bar Replay:</strong> Replay past price movements to backtest your strategies and refine your trading approach.</li>
+            <li><strong>Indicators on Indicators:</strong> Stack indicators on top of each other for advanced market insights.</li>
+            <li><strong>Chart Data Export:</strong> Export your chart data to CSV or other formats for further analysis outside of TradingView.</li>
+            <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized chart types for unique insights into price action and market trends.</li>
+            <li><strong>Charts Based on Custom Formulas:</strong> Build your own chart formulas tailored to your trading strategy.</li>
+            <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity at different price levels to understand key support and resistance zones.</li>
+            <li><strong>Volume Footprint:</strong> Identify where heavy trading volumes occur to gain insights into market sentiment.</li>
+            <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns like head-and-shoulders or flags for quicker analysis.</li>
+            <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements for precise trading decisions.</li>
+            <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off, ensuring you never miss a trading opportunity.</li>
+            <li><strong>Publishing Invite-Only Scripts:</strong> Share your custom indicators and strategies with a select group of users.</li>
+            <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast, real-time analysis during high-volatility markets.</li>
           </ul>
+
 
           {/* How to Access Section */}
           <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
