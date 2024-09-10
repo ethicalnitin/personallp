@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaWhatsapp, FaTelegram } from 'react-icons/fa';
-import { FaStar } from 'react-icons/fa'; // For the star emoji
+import { FaWhatsapp, FaTelegram, FaStar } from 'react-icons/fa'; // Import all necessary icons
 import logo from './lgo.jpeg'; // Replace with your actual logo file
-import productImage from './3P.png'; // The correct product image (3P.png)
+import productImage from './3P.png'; // Replace with your actual product image file
 
 const LandingPage = () => {
-  const telegramUrl = `https://t.me/yourTelegramLink`; // Your Telegram link for purchasing
+  const whatsappUrl = `https://wa.me/9557338330`; // Your WhatsApp link
+  const telegramUrl = `https://t.me/dextersenior`; // Your Telegram link for purchasing
   const proofsUrl = 'https://shorturl.at/Nsuke'; // Your provided proof link
 
   const handleBuyNowClick = () => {
@@ -16,7 +16,7 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center bg-white text-center p-4">
-      {/* Navbar / Top Section with Logo, Brand Name, WhatsApp and Telegram Icons */}
+      {/* Navbar / Top Section with Logo, Brand Name, WhatsApp, and Telegram Icons */}
       <header className="w-full bg-white shadow-md py-4 px-6 fixed top-0 left-0 flex justify-between items-center z-10">
         <div className="flex items-center">
           {/* Logo */}
@@ -33,6 +33,14 @@ const LandingPage = () => {
         {/* WhatsApp and Telegram Icons on the Right */}
         <div className="flex items-center space-x-4">
           <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-500 text-3xl hover:text-green-600 transition duration-300"
+          >
+            <FaWhatsapp />
+          </a>
+          <a
             href={telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -44,8 +52,7 @@ const LandingPage = () => {
       </header>
 
       {/* Main Content */}
-      <div className="pt-24 flex flex-col justify-center items-center"> {/* pt-24 to push content below the fixed navbar */}
-        
+      <div className="pt-24 flex flex-col justify-center items-center">
         {/* Product Title with Green Tick */}
         <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">
           #1211 - TradingView Premium 3 Months Plan ✅
@@ -61,8 +68,12 @@ const LandingPage = () => {
         {/* Email Activation and Client Satisfaction */}
         <div className="text-left max-w-md mb-4">
           <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Activate on your personal email</strong>: No need to share any credentials, keeping your account secure.</li>
-            <li><strong>Quick and hassle-free activation</strong>: Get your plan activated within 10-20 minutes of purchase.</li>
+            <li>
+              <strong>Activate on your personal email:</strong> No need to share any credentials, keeping your account secure.
+            </li>
+            <li>
+              <strong>Quick and hassle-free activation:</strong> Get your plan activated within 10-20 minutes of purchase.
+            </li>
           </ul>
         </div>
 
@@ -78,36 +89,32 @@ const LandingPage = () => {
         </div>
 
         {/* Product Description */}
-        <div className="text-black text-left max-w-md space-y-6 mb-16"> {/* Added mb-16 to prevent overlap */}
-
+        <div className="text-black text-left max-w-md space-y-6 mb-16">
           <h3 className="text-xl font-semibold">Unlock Powerful Trading Features:</h3>
-
           <ul className="list-disc pl-5 space-y-2">
-            <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen to track market movements effortlessly.</li>
-            <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with up to 25 powerful, customizable indicators on each chart.</li>
-            <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars to track long-term price movements and trends.</li>
-            <li><strong>400 Price Alerts:</strong> Set up to 400 price alerts to stay informed on critical price movements.</li>
-            <li><strong>400 Technical Alerts:</strong> Create 400 technical alerts to be notified of indicator-based market events.</li>
-            <li><strong>50 Parallel Chart Connections:</strong> Monitor up to 50 charts simultaneously for better market analysis.</li>
-            <li><strong>No Ads:</strong> Enjoy an ad-free experience, focusing entirely on your trading.</li>
-            <li><strong>Volume Profile:</strong> Analyze trading volumes at specific price levels to understand market behavior.</li>
-            <li><strong>Custom Timeframes:</strong> Set up custom time intervals that align with your specific trading strategy.</li>
-            <li><strong>Custom Range Bars:</strong> Analyze market trends using custom range bars for more visual insights.</li>
-            <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with multiple, customizable watchlists.</li>
-            <li><strong>Bar Replay:</strong> Replay past price movements to backtest your strategies and refine your trading approach.</li>
-            <li><strong>Indicators on Indicators:</strong> Stack indicators on top of each other for advanced market insights.</li>
-            <li><strong>Chart Data Export:</strong> Export your chart data to CSV or other formats for further analysis outside of TradingView.</li>
-            <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized chart types for unique insights into price action and market trends.</li>
-            <li><strong>Charts Based on Custom Formulas:</strong> Build your own chart formulas tailored to your trading strategy.</li>
-            <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity at different price levels to understand key support and resistance zones.</li>
-            <li><strong>Volume Footprint:</strong> Identify where heavy trading volumes occur to gain insights into market sentiment.</li>
-            <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns like head-and-shoulders or flags for quicker analysis.</li>
-            <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements for precise trading decisions.</li>
-            <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off, ensuring you never miss a trading opportunity.</li>
-            <li><strong>Publishing Invite-Only Scripts:</strong> Share your custom indicators and strategies with a select group of users.</li>
-            <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast, real-time analysis during high-volatility markets.</li>
+            <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
+            <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with customizable indicators.</li>
+            <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars for long-term trends.</li>
+            <li><strong>400 Price Alerts:</strong> Stay informed on critical price movements with up to 400 alerts.</li>
+            <li><strong>400 Technical Alerts:</strong> Receive alerts for indicator-based market events.</li>
+            <li><strong>50 Parallel Chart Connections:</strong> Monitor up to 50 charts simultaneously.</li>
+            <li><strong>No Ads:</strong> Enjoy an ad-free experience, fully focused on trading.</li>
+            <li><strong>Volume Profile:</strong> Analyze trading volumes to understand market behavior.</li>
+            <li><strong>Custom Timeframes:</strong> Set up time intervals that align with your trading strategy.</li>
+            <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with customizable watchlists.</li>
+            <li><strong>Bar Replay:</strong> Replay past price movements to backtest strategies.</li>
+            <li><strong>Indicators on Indicators:</strong> Stack indicators for advanced market insights.</li>
+            <li><strong>Chart Data Export:</strong> Export your chart data to CSV for further analysis.</li>
+            <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized charts for unique price action insights.</li>
+            <li><strong>Custom Formulas:</strong> Build custom formulas tailored to your trading style.</li>
+            <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity and key support and resistance zones.</li>
+            <li><strong>Volume Footprint:</strong> Gain insights into market sentiment based on trading volumes.</li>
+            <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns for faster analysis.</li>
+            <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements.</li>
+            <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off.</li>
+            <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
+            <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
           </ul>
-
 
           {/* How to Access Section */}
           <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
@@ -125,7 +132,7 @@ const LandingPage = () => {
             Enjoy a seamless trading experience with TradingView Premium.
           </p>
 
-          {/* Placeholder for Client Satisfaction/Proof */}
+          {/* Client Satisfaction/Proof */}
           <p className="text-base leading-relaxed text-center font-semibold">
             Join over 5000+ active members on Telegram we serve with trust. <a href={proofsUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Proofs And Vouches</a>
           </p>
@@ -138,7 +145,7 @@ const LandingPage = () => {
           ₹499 <span className="text-gray-500 line-through">₹15,000</span>
         </div>
         <a
-          href="https://payments.cybermafia.shop" // Redirect to the payment site
+          href="https://payments.cybermafia.shop"
           onClick={handleBuyNowClick}
           className="bg-red-500 text-white py-3 px-6 rounded-full hover:bg-red-600 transition duration-300 shadow-md"
           target="_blank"
