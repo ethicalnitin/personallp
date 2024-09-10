@@ -52,7 +52,7 @@ const LandingPage = () => {
       </header>
 
       {/* Main Content */}
-      <div className="pt-24 flex flex-col justify-center items-center">
+      <div className="pt-24 flex flex-col justify-center items-center mb-40"> {/* Added mb-20 to avoid content hiding behind footer */}
         {/* Product Title with Green Tick */}
         <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">
           #1211 - TradingView Premium 3 Months Plan ✅
@@ -90,7 +90,7 @@ const LandingPage = () => {
 
         {/* Product Description */}
         <div className="text-black text-left max-w-md space-y-6 mb-16">
-          <h3 className="text-xl font-semibold">Unlock Powerful Trading Features:</h3>
+          <h3 className="text-xl font-semibold">Unlock Powerful Trading Features📊:</h3>
           <ul className="list-disc pl-5 space-y-2">
             <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
             <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with customizable indicators.</li>
@@ -134,13 +134,14 @@ const LandingPage = () => {
 
           {/* Client Satisfaction/Proof */}
           <p className="text-base leading-relaxed text-center font-semibold">
-            Join over 5000+ active members on Telegram we serve with trust. <a href={proofsUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Proofs And Vouches</a>
+            Join over 5000+ active members on Telegram we serve with trust.❤️ <br/><br/><br/> <a href={proofsUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Proofs And Vouches</a> <strong>|</strong> <a href="mailto:leader@cybermafia.shop" className="text-blue-500 hover:underline">
+  Contact us
+</a>
           </p>
         </div>
       </div>
 
-      {/* Sticky Bottom Section with Price and Buy Button */}
-      <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
+<div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
         <div className="text-black font-bold text-xl">
           ₹499 <span className="text-gray-500 line-through">₹15,000</span>
         </div>
@@ -159,3 +160,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
