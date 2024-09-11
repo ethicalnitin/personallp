@@ -60,7 +60,7 @@ const LandingPage = () => {
     }
 
     // Send data to backend via fetch to track event with Conversion API
-    const backendUrl = 'https://backend-six-lyart-34.vercel.app//track-event'; // Replace with actual backend URL
+    const backendUrl = 'https://backend1-ztvf.onrender.com/track-event'; // Updated with your actual backend URL
 
     const postData = {
       event_name: 'AddToCart',
@@ -70,7 +70,7 @@ const LandingPage = () => {
       action_source: 'website',
       user_data: {
         email: 'testuser@example.com',  // Replace with real data
-        client_ip_address: 'YOUR_CLIENT_IP', 
+        client_ip_address: await fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip), // Fetch IP dynamically
         client_user_agent: navigator.userAgent 
       },
       custom_data: {
@@ -135,6 +135,7 @@ const LandingPage = () => {
           </button>
         </div>
 
+       
         <div className="text-left max-w-md mb-4">
           <ul className="list-disc pl-5 space-y-2">
             <li><strong>Activate on your personal email:</strong> No need to share any credentials, keeping your account secure.</li>
@@ -193,6 +194,7 @@ const LandingPage = () => {
             <p>If you need assistance, our support team is available to help you.</p>
           </div>
         </div>
+
 
         <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
           <div className="text-black font-bold text-xl">
