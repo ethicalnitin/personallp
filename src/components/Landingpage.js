@@ -17,40 +17,55 @@ const LandingPage = () => {
   const telegramUrl = `https://t.me/dextersenior`; // Your Telegram link for purchasing
   const proofsUrl = 'https://shorturl.at/Nsuke'; // Your provided proof link
 
-  // Ensure that Meta Pixel is loaded before tracking events
+  // Track PageView event when the page is loaded
   useEffect(() => {
     if (window.fbq) {
       window.fbq('track', 'PageView');
     }
   }, []);
 
-  // Function to handle Buy Now click, redirecting to the payment page with the plan price as a query parameter
+  // Function to handle WhatsApp button click, tracking ViewContent event
+  const handleWhatsappClick = () => {
+    if (window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_name: 'WhatsApp Contact',
+        content_category: 'Contact',
+        content_type: 'button',
+      });
+    }
+    window.open(whatsappUrl, '_blank');
+  };
+
+  // Function to track custom event for Proofs and Vouches click
+  const handleProofsClick = () => {
+    if (window.fbq) {
+      window.fbq('trackCustom', 'ProofAndVouches', {
+        action: 'Click',
+      });
+    }
+    window.open(proofsUrl, '_blank');
+  };
+
+  const handleTelegramClick = () => {
+   
+    window.open(telegramUrl, '_blank');
+  };
+
+  // Function to handle Buy Now click, tracking AddToCart event
   const handleBuyNowClick = () => {
     if (window.fbq) {
-      window.fbq('track', 'InitiateCheckout', {
+      window.fbq('track', 'AddToCart', {
         value: planDetails[selectedPlan].price, 
         currency: 'INR',
+        content_ids: [`plan_${selectedPlan}`],
+        content_type: 'product',
+        num_items: 1,
       });
     }
 
     // Redirect to the payment page with the price as a query parameter
     const paymentUrl = `https://payments.cybermafia.shop?amount=${planDetails[selectedPlan].price}`;
     window.location.href = paymentUrl;
-  };
-
-  const handleWhatsappClick = () => {
-    window.open(whatsappUrl, '_blank');
-  };
-
-  const handleTelegramClick = () => {
-    window.open(telegramUrl, '_blank');
-  };
-
-  const handleProofsClick = () => {
-    if (window.fbq) {
-      window.fbq('trackCustom', 'ProofsAndVouchesClick');
-    }
-    window.open(proofsUrl, '_blank');
   };
 
   return (
@@ -153,9 +168,9 @@ const LandingPage = () => {
             Proofs And Vouches
           </button>
         </div>
+       
 
-        {/* Trading Features */}
-        <div className="text-black text-left max-w-md space-y-6 mb-16">
+          <div className="text-black text-left max-w-md space-y-6 mb-16">
           <h3 className="text-xl font-semibold">Unlock Powerful Trading Features📊:</h3>
           <ul className="list-disc pl-5 space-y-2">
             <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
@@ -181,7 +196,7 @@ const LandingPage = () => {
             <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
             <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
           </ul>
-        </div>
+         </div>
 
         {/* How to Access Section */}
         <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
@@ -203,7 +218,6 @@ const LandingPage = () => {
           </a>
         </p>
       </div>
-
 
       {/* Footer Section */}
       <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
