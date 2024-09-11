@@ -204,6 +204,7 @@ const LandingPage = () => {
         </p>
       </div>
 
+
       {/* Footer Section */}
       <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
         <div className="text-black font-bold text-xl">
