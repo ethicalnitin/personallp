@@ -1,9 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaWhatsapp, FaTelegram, FaStar } from 'react-icons/fa'; // Import all necessary icons
 import logo from './lgo.jpeg'; // Replace with your actual logo file
 import productImage from './3P.png'; // Replace with your actual product image file
 
 const LandingPage = () => {
+  const [selectedPlan, setSelectedPlan] = useState('3-month'); // Default plan is 3-month
+
+  // Plan prices and buy URLs for each plan
+  const planDetails = {
+    '3-month': { price: 495, strikeThroughPrice: 11985 },
+    '6-month': { price: 995, strikeThroughPrice: 23470 },
+    '12-month': { price: 1795, strikeThroughPrice: 47940 }
+  };
+
   const whatsappUrl = `https://wa.me/9557338330`; // Your WhatsApp link
   const telegramUrl = `https://t.me/dextersenior`; // Your Telegram link for purchasing
   const proofsUrl = 'https://shorturl.at/Nsuke'; // Your provided proof link
@@ -15,13 +24,18 @@ const LandingPage = () => {
     }
   }, []);
 
+  // Function to handle Buy Now click, redirecting to the payment page with the plan price as a query parameter
   const handleBuyNowClick = () => {
     if (window.fbq) {
       window.fbq('track', 'InitiateCheckout', {
-        value: 499, 
+        value: planDetails[selectedPlan].price, 
         currency: 'INR',
       });
     }
+
+    // Redirect to the payment page with the price as a query parameter
+    const paymentUrl = `https://payments.cybermafia.shop?amount=${planDetails[selectedPlan].price}`;
+    window.location.href = paymentUrl;
   };
 
   const handleWhatsappClick = () => {
@@ -42,27 +56,30 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center bg-white text-center p-4">
       {/* Navbar */}
-      <header className="w-full bg-white shadow-md py-4 px-6 fixed top-0 left-0 flex justify-between items-center z-10">
-        <div className="flex items-center">
+      <header className="w-full bg-white shadow-md py-4 px-6 fixed top-0 left-0 flex justify-between items-center z-10 flex-wrap">
+        {/* Logo and Brand Name */}
+        <div className="flex items-center flex-shrink-0">
           <img
             src={logo}
             alt="Dexter Luxuries Logo"
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4"
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full mr-2"
           />
-          <h1 className="text-lg md:text-2xl font-bold text-black uppercase tracking-wide">
+          <h1 className="text-base md:text-lg font-bold text-black uppercase tracking-wide whitespace-nowrap">
             Dexter Luxuries
           </h1>
         </div>
-        <div className="flex items-center space-x-4">
+
+        {/* Social Media Icons */}
+        <div className="flex items-center space-x-2 md:space-x-4 mt-2 md:mt-0">
           <button
             onClick={handleWhatsappClick}
-            className="bg-green-500 text-white py-3 px-6 rounded-full hover:bg-green-600 transition duration-300 shadow-md"
+            className="bg-green-500 text-white p-2 md:py-3 md:px-6 rounded-full hover:bg-green-600 transition duration-300 shadow-md"
           >
             <FaWhatsapp />
           </button>
           <button
             onClick={handleTelegramClick}
-            className="bg-blue-500 text-white py-3 px-6 rounded-full hover:bg-blue-600 transition duration-300 shadow-md"
+            className="bg-blue-500 text-white p-2 md:py-3 md:px-6 rounded-full hover:bg-blue-600 transition duration-300 shadow-md"
           >
             <FaTelegram />
           </button>
@@ -72,7 +89,7 @@ const LandingPage = () => {
       {/* Main Content */}
       <div className="pt-24 flex flex-col justify-center items-center mb-40">
         <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">
-          #1211 - TradingView Premium 3 Months Plan ✅
+          #1211 - TradingView Premium {selectedPlan.replace('-', ' ')} Plan ✅
         </h2>
 
         <img
@@ -80,6 +97,34 @@ const LandingPage = () => {
           alt="TradingView Premium Plan"
           className="w-full max-w-xs sm:max-w-md rounded-lg shadow-md mb-4"
         />
+
+        {/* Plan Selection Buttons */}
+        <div className="flex space-x-4 mb-8">
+          <button
+            onClick={() => setSelectedPlan('3-month')}
+            className={`py-2 px-4 rounded-full text-white font-semibold ${
+              selectedPlan === '3-month' ? 'bg-red-500' : 'bg-gray-400'
+            }`}
+          >
+            3 Month
+          </button>
+          <button
+            onClick={() => setSelectedPlan('6-month')}
+            className={`py-2 px-4 rounded-full text-white font-semibold ${
+              selectedPlan === '6-month' ? 'bg-red-500' : 'bg-gray-400'
+            }`}
+          >
+            6 Month
+          </button>
+          <button
+            onClick={() => setSelectedPlan('12-month')}
+            className={`py-2 px-4 rounded-full text-white font-semibold ${
+              selectedPlan === '12-month' ? 'bg-red-500' : 'bg-gray-400'
+            }`}
+          >
+            12 Month
+          </button>
+        </div>
 
         <div className="text-left max-w-md mb-4">
           <ul className="list-disc pl-5 space-y-2">
@@ -92,7 +137,7 @@ const LandingPage = () => {
           </ul>
         </div>
 
-        {/* Star Rating */}
+        {/* Star Rating and Proofs */}
         <div className="flex items-center text-yellow-400 mb-6 text-left w-full max-w-md">
           <div className="flex items-center">
             <FaStar className="text-2xl" />
@@ -101,6 +146,12 @@ const LandingPage = () => {
             <FaStar className="text-2xl" />
           </div>
           <span className="ml-2 text-black font-semibold text-lg">4.6/5</span>
+          <button
+            onClick={handleProofsClick}
+            className="ml-4 text-blue-500 hover:underline"
+          >
+            Proofs And Vouches
+          </button>
         </div>
 
         {/* Trading Features */}
@@ -144,15 +195,9 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <p className="text-base leading-relaxed text-center font-semibold mt-4">
-          Enjoy a seamless trading experience with TradingView Premium.
-        </p>
-
         {/* Client Satisfaction/Proof */}
         <p className="text-base leading-relaxed text-center font-semibold">
-          Join over 5000+ active members on Telegram we serve with trust.❤️ <br/><br/><br/> 
-          <button onClick={handleProofsClick} className="text-blue-500 hover:underline">Proofs And Vouches</button>
-          <strong>|</strong> 
+          Join over 5000+ active members on Telegram we serve with trust.❤️ <br/><br/>
           <a href="mailto:leader@cybermafia.shop" className="text-blue-500 hover:underline">
             Contact us
           </a>
@@ -162,17 +207,16 @@ const LandingPage = () => {
       {/* Footer Section */}
       <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
         <div className="text-black font-bold text-xl">
-          ₹499 <span className="text-gray-500 line-through">₹15,000</span>
+          ₹{planDetails[selectedPlan].price}{' '}
+          {selectedPlan === '12-month' && <span className="text-red-500 font-semibold">Limited Offer</span>}
+          <span className="text-gray-500 line-through">₹{planDetails[selectedPlan].strikeThroughPrice}</span>
         </div>
-        <a
-          href="https://payments.cybermafia.shop"
+        <button
           onClick={handleBuyNowClick}
-          className="bg-red-500 text-white py-3 px-6 rounded-full hover:bg-red-600 transition duration-300 shadow-md"
-          target="_blank"
-          rel="noopener noreferrer"
+          className="bg-red-500 text-white py-3 px-6 rounded-full hover:bg-red-600 transition duration-300 shadow-md cursor-pointer"
         >
           <span className="font-bold">Buy Now</span>
-        </a>
+        </button>
       </div>
     </div>
   );
