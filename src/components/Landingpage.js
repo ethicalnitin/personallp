@@ -54,9 +54,7 @@ const LandingPage = () => {
   // Track PageView on load (both browser-side and server-side)
   useEffect(() => {
     // Browser-side pixel tracking
-    if (window.fbq) {
-      window.fbq('track', 'PageView');
-    }
+    
 
     // Server-side tracking via CAPI
     sendEventToBackend('PageView');
