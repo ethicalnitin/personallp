@@ -52,7 +52,7 @@ const LandingPage = () => {
     const planPrice = planDetails[selectedPlan].price;
 
     if (window.fbq) {
-      window.fbq('track', 'AddToCart', {
+      window.fbq('track', 'InitiateCheckout', {
         value: planPrice,
         currency: 'INR',
         content_ids: [`plan_${selectedPlan}`],
