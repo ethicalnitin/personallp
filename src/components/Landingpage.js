@@ -52,7 +52,7 @@ const LandingPage = () => {
     const planPrice = planDetails[selectedPlan].price;
 
     if (window.fbq) {
-      window.fbq('track', 'AddToCart', {
+      window.fbq('track', 'InitiateCheckout', {
         value: planPrice,
         currency: 'INR',
         content_ids: [`plan_${selectedPlan}`],
@@ -64,7 +64,7 @@ const LandingPage = () => {
     const backendUrl = 'https://backend1-ztvf.onrender.com/track-event'; // Updated with your actual backend URL
 
     const postData = {
-      event_name: 'AddToCart',
+      event_name: 'InitiateCheckout',
       event_time: Math.floor(Date.now() / 1000),
       event_id: `cart_${selectedPlan}`,
       event_source_url: window.location.href,
