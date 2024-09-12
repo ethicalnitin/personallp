@@ -17,68 +17,21 @@ const LandingPage = () => {
   const telegramUrl = `https://t.me/dextersenior`;
   const proofsUrl = 'https://shorturl.at/Nsuke';
 
-  useEffect(() => {
-    if (window.fbq) {
-      window.fbq('track', 'PageView');
-    }
-  }, []);
-
-  const handleWhatsappClick = () => {
-    if (window.fbq) {
-      window.fbq('track', 'ViewContent', {
-        content_name: 'WhatsApp Contact',
-        content_category: 'Contact',
-        content_type: 'button',
-      });
-    }
-    window.open(whatsappUrl, '_blank');
-  };
-
-  const handleProofsClick = () => {
-    if (window.fbq) {
-      window.fbq('trackCustom', 'ProofAndVouches', {
-        action: 'Click',
-      });
-    }
-    window.open(proofsUrl, '_blank');
-  };
-
-  const handleTelegramClick = () => {
-    window.open(telegramUrl, '_blank');
-  };
-
-  const handleBuyNowClick = async () => {
-    setIsLoading(true); // Set loading state to true when Buy Now is clicked
-    const planPrice = planDetails[selectedPlan].price;
-
-    if (window.fbq) {
-      window.fbq('track', 'InitiateCheckout', {
-        value: planPrice,
-        currency: 'INR',
-        content_ids: [`plan_${selectedPlan}`],
-        content_type: 'product',
-        num_items: 1,
-      });
-    }
-
-    const backendUrl = 'https://backend1-ztvf.onrender.com/track-event'; // Updated with your actual backend URL
+  // Function to send events to backend for Conversion API
+  const sendEventToBackend = async (eventName, additionalData = {}) => {
+    const backendUrl = 'https://backend1-ztvf.onrender.com/track-event'; // Your backend URL
 
     const postData = {
-      event_name: 'InitiateCheckout',
+      event_name: eventName,
       event_time: Math.floor(Date.now() / 1000),
-      event_id: `cart_${selectedPlan}`,
       event_source_url: window.location.href,
       action_source: 'website',
       user_data: {
-        email: 'testuser@example.com', // Replace with real data
+        email: 'testuser@example.com', // Replace with real user data
         client_ip_address: await fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip), // Fetch IP dynamically
         client_user_agent: navigator.userAgent
       },
-      custom_data: {
-        value: planPrice,
-        currency: 'INR',
-        content_ids: [`plan_${selectedPlan}`],
-      }
+      ...additionalData
     };
 
     try {
@@ -89,6 +42,122 @@ const LandingPage = () => {
         },
         body: JSON.stringify(postData)
       });
+
+      if (!response.ok) {
+        console.error('Error sending event to backend:', response);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  // Track PageView on load (both browser-side and server-side)
+  useEffect(() => {
+    // Browser-side pixel tracking
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
+    }
+
+    // Server-side tracking via CAPI
+    sendEventToBackend('PageView');
+  }, []);
+
+  // Handle WhatsApp button click (both browser-side and server-side)
+  const handleWhatsappClick = () => {
+    // Browser-side pixel tracking
+    if (window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_name: 'WhatsApp Contact',
+        content_category: 'Contact',
+        content_type: 'button',
+      });
+    }
+
+    // Server-side tracking via CAPI
+    sendEventToBackend('ViewContent', {
+      custom_data: {
+        content_name: 'WhatsApp Contact',
+        content_category: 'Contact',
+      }
+    });
+
+    window.open(whatsappUrl, '_blank');
+  };
+
+  // Handle Proofs button click (both browser-side and server-side)
+  const handleProofsClick = () => {
+    // Browser-side pixel tracking
+    if (window.fbq) {
+      window.fbq('trackCustom', 'ProofAndVouches', {
+        action: 'Click',
+      });
+    }
+
+    // Server-side tracking via CAPI
+    sendEventToBackend('ProofAndVouches', {
+      custom_data: {
+        action: 'Click',
+      }
+    });
+
+    window.open(proofsUrl, '_blank');
+  };
+
+  // Handle Telegram button click (browser only)
+  const handleTelegramClick = () => {
+    window.open(telegramUrl, '_blank');
+  };
+
+  // Handle Buy Now button click (both browser-side and server-side)
+  const handleBuyNowClick = async () => {
+    setIsLoading(true); // Set loading state to true when Buy Now is clicked
+    const planPrice = planDetails[selectedPlan].price;
+
+    // Browser-side pixel tracking
+    if (window.fbq) {
+      window.fbq('track', 'InitiateCheckout', {
+        value: planPrice,
+        currency: 'INR',
+        content_ids: [`plan_${selectedPlan}`],
+        content_type: 'product',
+        num_items: 1,
+      });
+    }
+
+    // Server-side tracking via CAPI
+    sendEventToBackend('InitiateCheckout', {
+      custom_data: {
+        value: planPrice,
+        currency: 'INR',
+        content_ids: [`plan_${selectedPlan}`],
+      }
+    });
+
+    // Redirect to the payment page after tracking
+    try {
+      const response = await fetch('https://backend1-ztvf.onrender.com/track-event', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          event_name: 'InitiateCheckout',
+          event_time: Math.floor(Date.now() / 1000),
+          event_source_url: window.location.href,
+          action_source: 'website',
+          user_data: {
+            email: 'testuser@example.com', // Replace with real data
+            client_ip_address: await fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip), // Fetch IP dynamically
+            client_user_agent: navigator.userAgent
+          },
+          custom_data: {
+            value: planPrice,
+            currency: 'INR',
+            content_ids: [`plan_${selectedPlan}`],
+          }
+        })
+      });
+
       if (response.ok) {
         window.location.href = `https://payments.cybermafia.shop?amount=${planPrice}`;
       } else {
@@ -168,20 +237,20 @@ const LandingPage = () => {
         <li><strong>400 Technical Alerts:</strong> Receive alerts for indicator-based market events.</li>
         <li><strong>No Ads:</strong> Enjoy an ad-free experience, fully focused on trading.</li>
         <li><strong>Volume Profile:</strong> Analyze trading volumes to understand market behavior.</li>
-            <li><strong>Custom Timeframes:</strong> Set up time intervals that align with your trading strategy.</li>
-            <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with customizable watchlists.</li>
-            <li><strong>Bar Replay:</strong> Replay past price movements to backtest strategies.</li>
-            <li><strong>Indicators on Indicators:</strong> Stack indicators for advanced market insights.</li>
-            <li><strong>Chart Data Export:</strong> Export your chart data to CSV for further analysis.</li>
-            <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized charts for unique price action insights.</li>
-            <li><strong>Custom Formulas:</strong> Build custom formulas tailored to your trading style.</li>
-            <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity and key support and resistance zones.</li>
-            <li><strong>Volume Footprint:</strong> Gain insights into market sentiment based on trading volumes.</li>
-            <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns for faster analysis.</li>
-            <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements.</li>
-            <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off.</li>
-            <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
-            <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
+        <li><strong>Custom Timeframes:</strong> Set up time intervals that align with your trading strategy.</li>
+        <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with customizable watchlists.</li>
+        <li><strong>Bar Replay:</strong> Replay past price movements to backtest strategies.</li>
+        <li><strong>Indicators on Indicators:</strong> Stack indicators for advanced market insights.</li>
+        <li><strong>Chart Data Export:</strong> Export your chart data to CSV for further analysis.</li>
+        <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized charts for unique price action insights.</li>
+        <li><strong>Custom Formulas:</strong> Build custom formulas tailored to your trading style.</li>
+        <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity and key support and resistance zones.</li>
+        <li><strong>Volume Footprint:</strong> Gain insights into market sentiment based on trading volumes.</li>
+        <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns for faster analysis.</li>
+        <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements.</li>
+        <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off.</li>
+        <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
+        <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
       </ul>
     </div>
 
@@ -213,9 +282,6 @@ const LandingPage = () => {
   </div>
 </div>
 
-
-    
-   
   );
 };
 
