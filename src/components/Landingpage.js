@@ -103,14 +103,34 @@ const LandingPage = () => {
 
   // Handle Telegram button click (browser only)
   const handleTelegramClick = () => {
+    // Browser-side pixel tracking
+    if (window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_name: 'Telegram',
+        content_category: 'Contact',
+        content_type: 'button',
+      });
+    }
+
+    // Server-side tracking via CAPI
+    sendEventToBackend('ViewContent', {
+      custom_data: {
+        content_name: 'Telegram',
+        content_category: 'Contact',
+      }
+    });
+
     window.open(telegramUrl, '_blank');
   };
 
   // Handle Buy Now button click (both browser-side and server-side)
   const handleBuyNowClick = async () => {
+    // If already loading, prevent multiple clicks
+    if (isLoading) return;
+  
     setIsLoading(true); // Set loading state to true when Buy Now is clicked
     const planPrice = planDetails[selectedPlan].price;
-
+  
     // Browser-side pixel tracking
     if (window.fbq) {
       window.fbq('track', 'InitiateCheckout', {
@@ -121,50 +141,23 @@ const LandingPage = () => {
         num_items: 1,
       });
     }
-
+  
     // Server-side tracking via CAPI
-    sendEventToBackend('InitiateCheckout', {
-      custom_data: {
-        value: planPrice,
-        currency: 'INR',
-        content_ids: [`plan_${selectedPlan}`],
-      }
-    });
-
-    // Redirect to the payment page after tracking
     try {
-      const response = await fetch('https://backend1-ztvf.onrender.com/track-event', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          event_name: 'InitiateCheckout',
-          event_time: Math.floor(Date.now() / 1000),
-          event_source_url: window.location.href,
-          action_source: 'website',
-          user_data: {
-            email: 'testuser@example.com', // Replace with real data
-            client_ip_address: await fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip), // Fetch IP dynamically
-            client_user_agent: navigator.userAgent
-          },
-          custom_data: {
-            value: planPrice,
-            currency: 'INR',
-            content_ids: [`plan_${selectedPlan}`],
-          }
-        })
+      await sendEventToBackend('InitiateCheckout', {
+        custom_data: {
+          value: planPrice,
+          currency: 'INR',
+          content_ids: [`plan_${selectedPlan}`],
+        }
       });
-
-      if (response.ok) {
-        window.location.href = `https://payments.cybermafia.shop?amount=${planPrice}`;
-      } else {
-        console.error('Error sending event to backend:', response);
-      }
+  
+      // Redirect to the payment page after successful event tracking
+      window.location.href = `https://payments.cybermafia.shop?amount=${planPrice}`;
     } catch (error) {
       console.error('Error:', error);
     } finally {
-      setIsLoading(false); // Reset loading state after redirect or error
+      setIsLoading(false); // Reset loading state after the redirect or error
     }
   };
 
