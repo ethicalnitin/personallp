@@ -55,9 +55,10 @@ const LandingPage = () => {
   useEffect(() => {
     // Browser-side pixel tracking
     
-
+     
     // Server-side tracking via CAPI
     sendEventToBackend('PageView');
+console.log('pageview capi lp done');
   }, []);
 
   // Handle WhatsApp button click (both browser-side and server-side)
@@ -152,7 +153,7 @@ const LandingPage = () => {
         }
       });
   
-      // Redirect to the payment page after successful event tracking
+      console.log('pageview capi lp done');
       window.location.href = `https://payments.cybermafia.shop?amount=${planPrice}`;
     } catch (error) {
       console.error('Error:', error);
@@ -248,7 +249,11 @@ const LandingPage = () => {
     <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
     <div className="bg-gray-100 p-4 rounded-lg shadow-md">
       <div className="space-y-2 text-left">
+<<<<<<< HEAD
       <ul>
+=======
+       <ul>
+>>>>>>> origin/main
     <li><strong>Step 1:</strong> Click the <strong>"Buy Now"</strong> button to make your payment securely.✅</li>
     
     <li><strong>Step 2:</strong> Once your payment is complete, you will be <strong>automatically redirected to WhatsApp📞</strong>.</li>
