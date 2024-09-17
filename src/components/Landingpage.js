@@ -250,13 +250,13 @@ console.log('pageview capi lp done');
     <div className="bg-gray-100 p-4 rounded-lg shadow-md">
       <div className="space-y-2 text-left">
        <ul>
-    <li><strong>Step 1:</strong> Click the <strong>"Buy Now"</strong> button to make your payment securely.</li>
+    <li><strong>Step 1:</strong> Click the <strong>"Buy Now"</strong> button to make your payment securely.✅</li>
     
-    <li><strong>Step 2:</strong> Once your payment is complete, you will be <strong>automatically redirected to WhatsApp</strong>.</li>
+    <li><strong>Step 2:</strong> Once your payment is complete, you will be <strong>automatically redirected to WhatsApp📞</strong>.</li>
     
     
     
-    <li><strong>Step 4:</strong> After verification, you will receive your <strong>TradingView Premium plan access instantly</strong> via WhatsApp. Our team is ready to assist if you need any help!</li>
+    <li><strong>Step 3:</strong> After verification, you will receive your <strong>TradingView Premium plan access instantly</strong> via WhatsApp. Our team is ready to assist if you need any help!</li>
 </ul>
       </div>
     </div>
