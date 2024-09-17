@@ -55,9 +55,10 @@ const LandingPage = () => {
   useEffect(() => {
     // Browser-side pixel tracking
     
-
+     
     // Server-side tracking via CAPI
     sendEventToBackend('PageView');
+console.log('pageview capi lp done');
   }, []);
 
   // Handle WhatsApp button click (both browser-side and server-side)
@@ -152,7 +153,7 @@ const LandingPage = () => {
         }
       });
   
-      // Redirect to the payment page after successful event tracking
+      console.log('pageview capi lp done');
       window.location.href = `https://payments.cybermafia.shop?amount=${planPrice}`;
     } catch (error) {
       console.error('Error:', error);
