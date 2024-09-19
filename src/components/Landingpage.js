@@ -249,11 +249,7 @@ console.log('pageview capi lp done');
     <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
     <div className="bg-gray-100 p-4 rounded-lg shadow-md">
       <div className="space-y-2 text-left">
-<<<<<<< HEAD
-      <ul>
-=======
        <ul>
->>>>>>> origin/main
     <li><strong>Step 1:</strong> Click the <strong>"Buy Now"</strong> button to make your payment securely.✅</li>
     
     <li><strong>Step 2:</strong> Once your payment is complete, you will be <strong>automatically redirected to WhatsApp📞</strong>.</li>
