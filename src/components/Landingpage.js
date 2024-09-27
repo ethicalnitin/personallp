@@ -199,12 +199,25 @@ console.log('pageview capi lp done');
       </button>
     </div>
 
-    <div className="text-left max-w-md mb-4">
-      <ul className="list-disc pl-5 space-y-2">
-        <li><strong>Activate on your personal email:</strong> No need to share any credentials, keeping your account secure.</li>
-        <li><strong>Quick and hassle-free activation:</strong> Get your plan activated within 10-20 minutes of purchase.</li>
-      </ul>
-    </div>
+   <div className="text-left max-w-md mb-4">
+  <ul className="list-disc pl-5 space-y-2">
+    <li>
+      <strong>Activate on your personal email:</strong> No need to share any credentials, keeping your account secure.
+    </li>
+  </ul>
+</div>
+
+<div className="bg-yellow-200 border border-yellow-500 rounded-md p-4 mb-4 animate-pulse">
+  <p className="text-center font-bold">
+    If you purchase the <span className="text-blue-600">6-month</span> or <span className="text-blue-600">12-month</span> plan, you can renew the TradingView plan on your personal email at the same price as you are purchasing it right now!
+  </p>
+</div>
+
+<div className="bg-green-200 border border-green-500 rounded-md p-4 mb-4">
+  <p className="text-center font-bold">
+    The yearly plan is now <span className="line-through text-red-600">₹2,999</span> discounted to just <span className="text-green-600">₹1,795</span>!
+  </p>
+</div>
 
     <div className="flex items-center text-yellow-400 mb-6 text-left w-full max-w-md">
       <div className="flex items-center">
