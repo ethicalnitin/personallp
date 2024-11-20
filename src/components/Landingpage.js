@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { FaWhatsapp, FaTelegram, FaStar } from 'react-icons/fa';
 import logo from './lgo.jpeg';
-import productImage from './store.png';
+import productImage from './1.png';
 
 const LandingPage = () => {
-  const [selectedPlan, setSelectedPlan] = useState('Lifetime');
+  const [selectedPlan, setSelectedPlan] = useState('3-month');
   const [isLoading, setIsLoading] = useState(false); // Loading state
 
   const planDetails = {
-    'Lifetime': { price: 1995, strikeThroughPrice: 14999 },
-  
+    '3-month': { price: 495, strikeThroughPrice: 11985 },
+    '6-month': { price: 995, strikeThroughPrice: 23470 },
+    '12-month': { price: 1795, strikeThroughPrice: 47940 }
   };
 
   const whatsappUrl = `https://wa.me/9557338330`;
@@ -182,49 +183,39 @@ console.log('pageview capi lp done');
   </header>
 
   <div className="pt-24 flex flex-col justify-center items-center mb-40">
-    <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">#32322 - Digital Store for Online Sellers | Personal QR payment | Fully Automated - 2024✅</h2>
+    <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">#1211 - TradingView Premium {selectedPlan.replace('-', ' ')} Plan ✅</h2>
 
     <img src={productImage} alt="TradingView Premium Plan" className="w-full max-w-xs sm:max-w-md rounded-lg shadow-md mb-4" />
 
     <div className="flex space-x-4 mb-8">
-      <button onClick={() => setSelectedPlan('Lifetime')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === 'Lifetime' ? 'bg-red-500' : 'bg-gray-400'}`}>
-        Lifetime
+      <button onClick={() => setSelectedPlan('3-month')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === '3-month' ? 'bg-red-500' : 'bg-gray-400'}`}>
+        3 Month
+      </button>
+      <button onClick={() => setSelectedPlan('6-month')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === '6-month' ? 'bg-red-500' : 'bg-gray-400'}`}>
+        6 Month
+      </button>
+      <button onClick={() => setSelectedPlan('12-month')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === '12-month' ? 'bg-red-500' : 'bg-gray-400'}`}>
+        12 Month
       </button>
     </div>
 
     <div className="text-left max-w-md mb-4">
-  <ul className=" pl-5 space-y-2">
+  <ul className="list-disc pl-5 space-y-2">
     <li>
-      <strong>Fastest selling product amongst telegram sellers and online digital sellers❤️‍🔥</strong> 
+      <strong>Activate on your personal email:</strong> No need to share any credentials, keeping your account secure.
     </li>
   </ul>
 </div>
 
 <div className="bg-yellow-200 border border-yellow-500 rounded-md p-4 mb-4 animate-pulse">
-
-  <ul className="list-disc list-inside text-left">
-    <li className="font-bold">
-      Accept payments on ANY QR code
-    </li>
-    <li className="font-bold">
-      Instant Payment Notifications
-    </li>
-    <li className="font-bold">
-      Fully Automated Workflow
-    </li>
-    <li className="font-bold">
-      User-Friendly Interface
-    </li>
-    
-  </ul>
-
+  <p className="text-center font-bold">
+    If you purchase the <span className="text-blue-600">6-month</span> or <span className="text-blue-600">12-month</span> plan, you can renew the TradingView plan on your personal email at the same price you are purchasing it right now!
+  </p>
 </div>
-
-
 
 <div className="bg-green-200 border border-green-500 rounded-md p-4 mb-4">
   <p className="text-center font-bold">
-    Your store is now priced at just <span className="text-green-600">₹1,995</span> <span className="line-through text-red-600">₹14999</span>!
+    The yearly plan is now <span className="line-through text-red-600">₹47,000</span> discounted to just <span className="text-green-600">₹1,795</span>!
   </p>
 </div>
 
@@ -242,36 +233,52 @@ console.log('pageview capi lp done');
     </div>
 
     <div className="text-black text-left max-w-md space-y-6 mb-16">
-  <h3 className="text-xl font-semibold"> Powerful Digital Store Features💼:</h3>
-  <ul className="list-disc pl-5 space-y-2">
-    <li><strong>Lifetime Access:</strong> One-time purchase gives you lifetime access to the store.</li>
-    <li><strong>Easy Payment Setup:</strong> Can easilly change payment details for receiving payments</li>
-    <li><strong>Product Management:</strong> Effortlessly update or delete products from the store as needed.</li>
-    <li><strong>Custom Telegram Notifications:</strong> Receive real-time payment updates via Telegram from a personalized bot.</li>
-    <li><strong>Fully Automated Workflow:</strong> The entire purchase and payment process is automated for a smooth experience.</li>
+      <h3 className="text-xl font-semibold">Unlock Powerful Trading Features📊:</h3>
+      <ul className="list-disc pl-5 space-y-2">
+        <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
+        <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with customizable indicators.</li>
+        <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars for long-term trends.</li>
+        <li><strong>400 Price Alerts:</strong> Stay informed on critical price movements with up to 400 alerts.</li>
+        <li><strong>400 Technical Alerts:</strong> Receive alerts for indicator-based market events.</li>
+        <li><strong>No Ads:</strong> Enjoy an ad-free experience, fully focused on trading.</li>
+        <li><strong>Volume Profile:</strong> Analyze trading volumes to understand market behavior.</li>
+        <li><strong>Custom Timeframes:</strong> Set up time intervals that align with your trading strategy.</li>
+        <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with customizable watchlists.</li>
+        <li><strong>Bar Replay:</strong> Replay past price movements to backtest strategies.</li>
+        <li><strong>Indicators on Indicators:</strong> Stack indicators for advanced market insights.</li>
+        <li><strong>Chart Data Export:</strong> Export your chart data to CSV for further analysis.</li>
+        <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized charts for unique price action insights.</li>
+        <li><strong>Custom Formulas:</strong> Build custom formulas tailored to your trading style.</li>
+        <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity and key support and resistance zones.</li>
+        <li><strong>Volume Footprint:</strong> Gain insights into market sentiment based on trading volumes.</li>
+        <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns for faster analysis.</li>
+        <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements.</li>
+        <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off.</li>
+        <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
+        <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
+      </ul>
+    </div>
+
+    <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
+    <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+      <div className="space-y-2 text-left">
+       <ul>
+    <li><strong>Step 1:</strong> Click the <strong>"Buy Now"</strong> button to make your payment securely.✅</li>
     
-    <li><strong>Perfect for Digital Product Sales:</strong> Ideal for selling digital products like subscriptions, software, e-books, and more.</li>
-  </ul>
-</div>
-
-
-<h3 className="text-xl font-semibold text-left">How to Purchase & Full Details:</h3>
-<div className="bg-gray-100 border-l-amber-950 border-l-10 border-solid p-4 rounded-md space-y-2 text-left">
-  <p><strong>Step 1:</strong> Click on the "Buy Now" button to proceed to the payment page.</p>
-  <p><strong>Step 2:</strong> Complete the payment using your preferred method.</p>
-  <p><strong>Step 3:</strong> After payment, fill in the required details on the payment website that appears.</p>
-  <p><strong>Step 4:</strong> Once you submit the details, you will be redirected to WhatsApp.</p>
-  <p><strong>Step 5:</strong> Access your digital store instantly via the link provided on WhatsApp.</p>
-</div>
-
- 
-
+    <li><strong>Step 2:</strong> Once your payment is complete, you will be <strong>automatically redirected to WhatsApp📞</strong>.</li>
+    
+    
+    
+    <li><strong>Step 3:</strong> After verification, you will receive your <strong>TradingView Premium plan access instantly</strong> via WhatsApp. Our team is ready to assist if you need any help!</li>
+</ul>
+      </div>
+    </div>
   </div>
 
   <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
     <div className="text-black font-bold text-xl">
       ₹{planDetails[selectedPlan].price}{' '}
-      {selectedPlan === 'Lifetime' && <span className="text-red-500 font-semibold">Limited Offer</span>}
+      {selectedPlan === '12-month' && <span className="text-red-500 font-semibold">Limited Offer</span>}
       <span className="text-gray-500 line-through">₹{planDetails[selectedPlan].strikeThroughPrice}</span>
     </div>
     <button
