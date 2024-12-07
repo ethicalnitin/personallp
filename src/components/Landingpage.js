@@ -215,7 +215,7 @@ console.log('pageview capi lp done');
 
 <div className="bg-green-200 border border-green-500 rounded-md p-4 mb-4">
   <p className="text-center font-bold">
-    The yearly plan is now <span className="line-through text-red-600">₹47,000</span> discounted to just <span className="text-green-600">₹1,795</span>!
+    The yearly plan is now <span className="line-through text-red-600">₹47,000</span> discounted to just <span className="text-green-600">₹2195</span>!
   </p>
 </div>
 
