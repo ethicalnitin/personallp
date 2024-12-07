@@ -13,7 +13,7 @@ const LandingPage = () => {
     '12-month': { price: 2195, strikeThroughPrice: 47940 }
   };
 
-  const whatsappUrl = `https://wa.me/9557338330`;
+  const whatsappUrl = `https://wa.me/7533833069`;
   const telegramUrl = `https://t.me/dextersenior`;
   const proofsUrl = 'https://shorturl.at/Nsuke';
 
