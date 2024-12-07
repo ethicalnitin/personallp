@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { FaWhatsapp, FaTelegram, FaStar } from 'react-icons/fa';
 import logo from './lgo.jpeg';
-import productImage from './1.png';
+import productImage from './newp.png';
 
 const LandingPage = () => {
   const [selectedPlan, setSelectedPlan] = useState('3-month');
   const [isLoading, setIsLoading] = useState(false); // Loading state
 
   const planDetails = {
-    '3-month': { price: 495, strikeThroughPrice: 11985 },
-    '6-month': { price: 995, strikeThroughPrice: 23470 },
-    '12-month': { price: 1795, strikeThroughPrice: 47940 }
+    '3-month': { price: 695, strikeThroughPrice: 11985 },
+    '6-month': { price: 1295, strikeThroughPrice: 23470 },
+    '12-month': { price: 2195, strikeThroughPrice: 47940 }
   };
 
   const whatsappUrl = `https://wa.me/9557338330`;
