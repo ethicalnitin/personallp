@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { FaWhatsapp, FaTelegram, FaStar } from 'react-icons/fa';
 import logo from './lgo.jpeg';
-import productImage from './newp.png';
+import productImage from './finalbcpost.png';
+import {Footer} from './Footer';
 
-const LandingPage = () => {
-  const [selectedPlan, setSelectedPlan] = useState('3-month');
+const Landingpage = () => {
+  const [selectedPlan, setSelectedPlan] = useState('Lifetime');
   const [isLoading, setIsLoading] = useState(false); // Loading state
 
   const planDetails = {
-    '3-month': { price: 695, strikeThroughPrice: 11985 },
-    '6-month': { price: 1295, strikeThroughPrice: 23470 },
-    '12-month': { price: 2195, strikeThroughPrice: 47940 }
+    'Lifetime': { price: 297, strikeThroughPrice: 999 },
   };
 
   const whatsappUrl = `https://wa.me/7533833069`;
@@ -163,7 +162,7 @@ console.log('pageview capi lp done');
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center bg-white text-center p-4">
+    <div className="min-h-screen flex flex-col justify-center bg-white text-center p-2">
   <header className="w-full bg-white shadow-md py-4 px-6 fixed top-0 left-0 flex justify-between items-center z-10 flex-wrap">
     <div className="flex items-center flex-shrink-0">
       <img src={logo} alt="Dexter Luxuries Logo" className="w-8 h-8 md:w-10 md:h-10 rounded-full mr-2" />
@@ -183,43 +182,18 @@ console.log('pageview capi lp done');
   </header>
 
   <div className="pt-24 flex flex-col justify-center items-center mb-40">
-    <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">#1211 - TradingView Premium {selectedPlan.replace('-', ' ')} Plan ✅</h2>
+    <h2 className="text-2xl font-bold mb-4 text-left w-full max-w-md">#1211 - Software Engineering Placement Bundle - You can't miss this! {selectedPlan.replace('-', ' ')} Access ✅</h2>
 
     <img src={productImage} alt="TradingView Premium Plan" className="w-full max-w-xs sm:max-w-md rounded-lg shadow-md mb-4" />
 
     <div className="flex space-x-4 mb-8">
-      <button onClick={() => setSelectedPlan('3-month')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === '3-month' ? 'bg-red-500' : 'bg-gray-400'}`}>
-        3 Month
+      <button onClick={() => setSelectedPlan('Lifetime')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === 'Lifetime' ? 'bg-red-500' : 'bg-gray-400'}`}>
+      Lifetime
       </button>
-      <button onClick={() => setSelectedPlan('6-month')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === '6-month' ? 'bg-red-500' : 'bg-gray-400'}`}>
-        6 Month
-      </button>
-      <button onClick={() => setSelectedPlan('12-month')} className={`py-2 px-4 rounded-full text-white font-semibold ${selectedPlan === '12-month' ? 'bg-red-500' : 'bg-gray-400'}`}>
-        12 Month
-      </button>
+     
     </div>
 
-    <div className="text-left max-w-md mb-4">
-  <ul className="list-disc pl-5 space-y-2">
-    <li>
-      <strong>Activate on your personal email:</strong> No need to share any credentials, keeping your account secure.
-    </li>
-  </ul>
-</div>
-
-<div className="bg-yellow-200 border border-yellow-500 rounded-md p-4 mb-4 animate-pulse">
-  <p className="text-center font-bold">
-    If you purchase the <span className="text-blue-600">6-month</span> or <span className="text-blue-600">12-month</span> plan, you can renew the TradingView plan on your personal email at the same price you are purchasing it right now!
-  </p>
-</div>
-
-<div className="bg-green-200 border border-green-500 rounded-md p-4 mb-4">
-  <p className="text-center font-bold">
-    The yearly plan is now <span className="line-through text-red-600">₹47,000</span> discounted to just <span className="text-green-600">₹2195</span>!
-  </p>
-</div>
-
-    <div className="flex items-center text-yellow-400 mb-6 text-left w-full max-w-md">
+    <div className="flex items-center text-yellow-400 mb-6 text-center w-full max-w-md">
       <div className="flex items-center">
         <FaStar className="text-2xl" />
         <FaStar className="text-2xl" />
@@ -233,47 +207,49 @@ console.log('pageview capi lp done');
     </div>
 
     <div className="text-black text-left max-w-md space-y-6 mb-16">
-      <h3 className="text-xl font-semibold">Unlock Powerful Trading Features📊:</h3>
-      <ul className="list-disc pl-5 space-y-2">
-        <li><strong>8 Charts Per Tab:</strong> View multiple assets and timeframes on one screen.</li>
-        <li><strong>25 Indicators Per Chart:</strong> Deepen your technical analysis with customizable indicators.</li>
-        <li><strong>20K Historical Bars:</strong> Analyze up to 20,000 historical bars for long-term trends.</li>
-        <li><strong>400 Price Alerts:</strong> Stay informed on critical price movements with up to 400 alerts.</li>
-        <li><strong>400 Technical Alerts:</strong> Receive alerts for indicator-based market events.</li>
-        <li><strong>No Ads:</strong> Enjoy an ad-free experience, fully focused on trading.</li>
-        <li><strong>Volume Profile:</strong> Analyze trading volumes to understand market behavior.</li>
-        <li><strong>Custom Timeframes:</strong> Set up time intervals that align with your trading strategy.</li>
-        <li><strong>Multiple Watchlists:</strong> Organize and track your favorite assets with customizable watchlists.</li>
-        <li><strong>Bar Replay:</strong> Replay past price movements to backtest strategies.</li>
-        <li><strong>Indicators on Indicators:</strong> Stack indicators for advanced market insights.</li>
-        <li><strong>Chart Data Export:</strong> Export your chart data to CSV for further analysis.</li>
-        <li><strong>Intraday Renko, Kagi, Line Break, Point & Figure Charts:</strong> Use specialized charts for unique price action insights.</li>
-        <li><strong>Custom Formulas:</strong> Build custom formulas tailored to your trading style.</li>
-        <li><strong>Time Price Opportunity (TPO):</strong> Visualize market activity and key support and resistance zones.</li>
-        <li><strong>Volume Footprint:</strong> Gain insights into market sentiment based on trading volumes.</li>
-        <li><strong>Auto Chart Patterns:</strong> Automatically detect key chart patterns for faster analysis.</li>
-        <li><strong>Second-Based Alerts:</strong> Receive alerts based on second-level price movements.</li>
-        <li><strong>Alerts That Don't Expire:</strong> Set alerts that remain active until manually turned off.</li>
-        <li><strong>Publishing Invite-Only Scripts:</strong> Share custom indicators with select users.</li>
-        <li><strong>Second-Based Intervals:</strong> Use second-based intervals for ultra-fast analysis.</li>
-      </ul>
-    </div>
 
-    <h3 className="text-xl font-semibold">How to Access Your TradingView Premium Plan:</h3>
-    <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-      <div className="space-y-2 text-left">
-       <ul>
-    <li><strong>Step 1:</strong> Click the <strong>"Buy Now"</strong> button to make your payment securely.✅</li>
-    
-    <li><strong>Step 2:</strong> Once your payment is complete, you will be <strong>automatically redirected to WhatsApp📞</strong>.</li>
-    
-    
-    
-    <li><strong>Step 3:</strong> After verification, you will receive your <strong>TradingView Premium plan access instantly</strong> via WhatsApp. Our team is ready to assist if you need any help!</li>
-</ul>
+    <h3 className="text-xl font-semibold">What's Included :</h3>
+    <ul className="list-disc pl-5 space-y-2">
+    <li>300+ DSA questions asked in <strong>actual OA rounds in 2020-2024 tenure</strong> + Tailored Resume with <strong>80+</strong>ATS score +Source Code for <strong>Personal Portfolio Website</strong>+ Core Subject Notes + Programing Languages Notes </li>
+    </ul>
+
+  <h3 className="text-xl font-semibold">Crack Your Dream Job with Our Placement Bundle 💼:</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>Customized DSA Question Bank:</strong> Handpicked questions from actual Online Assessment (OA) rounds of top companies, compiled from verified sources and Telegram groups.</li>
+    <li><strong>ATS-Friendly Resume Template:</strong> Achieve an ATS score of 80+ and make your resume stand out in automated screenings.</li>
+    <li><strong>Comprehensive Notes:</strong> Detailed PDFs covering core CS subjects like Operating Systems (OS), DBMS, and Computer Networking.</li>
+    <li><strong>Programming Language Notes:</strong> Easy-to-understand guides for C, Python, and Artificial Intelligence (AI).</li>
+    <li><strong>Machine Learning Notes:</strong> Simplified concepts to get you interview-ready for ML-based roles.</li>
+    <li><strong>Interview Questions:</strong> A thorough collection of technical and HR interview questions for better preparation.</li>
+    <li><strong>Real-World Insights:</strong> Curated material from students who cracked top tech firms, ensuring relevance and accuracy.</li>
+    <li><strong>Extra Edge:</strong> Unique strategies and tips to boost your confidence and performance during assessments and interviews.</li>
+  </ul>
+</div>
+
+<div className="mt-2 bg-white text-black rounded-lg shadow-lg max-w-lg mx-auto p-1">
+    <h4 className="text-xl font-semibold mb-6 ">What Students Are Saying ⭐</h4>
+    <div className="space-y-4">
+      <div className="border-b pb-4">
+        <p className="text-sm italic">"This bundle helped me land my dream job at a startup at Noida! The DSA questions were spot on!"</p>
+        <p className="text-right text-sm font-medium">- Rajeev Ranjan</p>
+      </div>
+      <div className="border-b pb-4">
+        <p className="text-sm italic">"The resume template and notes made my preparation so much easier. Highly recommended!"</p>
+        <p className="text-right text-sm font-medium">- Pintu Sardar</p>
+      </div>
+      <div>
+        <p className="text-sm italic">"A lifesaver for placement season! The personalized DSA questions were a game-changer."</p>
+        <p className="text-right text-sm font-medium">- Raj Verma</p>
+      </div>
+      <div>
+        <p className="text-sm italic">"Good"</p>
+        <p className="text-right text-sm font-medium">- Pankaj</p>
       </div>
     </div>
   </div>
+   
+  </div>
+  
 
   <div className="fixed bottom-0 left-0 w-full bg-gray-100 py-4 flex justify-between items-center px-6 shadow-lg border-t">
     <div className="text-black font-bold text-xl">
@@ -289,9 +265,10 @@ console.log('pageview capi lp done');
       <span className="font-bold">{isLoading ? 'Loading...' : 'Buy Now'}</span>
     </button>
   </div>
+  <Footer/>
 </div>
-
+  
   );
 };
 
-export default LandingPage;
+export default Landingpage;
